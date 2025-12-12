@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "oops"
+version = "0.1.0"
+description = "Open Source Offensive Security Agent"
+authors = ["Farhan Aulianda <farhanauliandaa@gmail.com>"]
+readme = "README.md"
+packages = [{include = "oops"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+strands-agents = {extras = ["openai"], version = "^1.19.0"}
+strands-agents-tools = "^0.2.17"
+python-dotenv = "^1.2.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
