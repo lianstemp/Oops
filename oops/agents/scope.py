@@ -1,6 +1,6 @@
 from strands import Agent, tool
-from tools.file_ops import write_file
-from config import get_model
+from oops.tools.file_ops import write_file
+from oops.config import get_model
 import dns.resolver
 import socket
 import logging

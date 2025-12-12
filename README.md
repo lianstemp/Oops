@@ -9,10 +9,10 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/lianstemp/Oops/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-blue?style=flat-square" /></a>
-  <a href="https://python-poetry.org/"><img alt="Poetry" src="https://img.shields.io/badge/managed_by-Poetry-blueviolet?style=flat-square" /></a>
-  <a href="https://www.python.org/"><img alt="Python" src="https://img.shields.io/badge/Python-3.10+-yellow?style=flat-square" /></a>
-  <a href="https://strandsagents.com"><img alt="Strands Agents" src="https://img.shields.io/badge/Powered_by-Strands_Agents-orange?style=flat-square" /></a>
+  <a href="https://github.com/lianstemp/Oops/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-blue?style=flat" /></a>
+  <a href="https://python-poetry.org/"><img alt="Poetry" src="https://img.shields.io/badge/managed_by-Poetry-blueviolet?style=flat" /></a>
+  <a href="https://www.python.org/"><img alt="Python" src="https://img.shields.io/badge/Python-3.10+-yellow?style=flat" /></a>
+  <a href="https://strandsagents.com"><img alt="Strands Agents" src="https://img.shields.io/badge/Powered_by-Strands_Agents-orange?style=flat" /></a>
 </p>
 
 ---

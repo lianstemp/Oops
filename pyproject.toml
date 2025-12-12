@@ -6,6 +6,9 @@ authors = ["Farhan Aulianda <farhanauliandaa@gmail.com>"]
 readme = "README.md"
 packages = [{include = "oops"}]
 
+[tool.poetry.scripts]
+oops = "oops.main:main"
+
 [tool.poetry.dependencies]
 python = "^3.10"
 strands-agents = {extras = ["openai"], version = "^1.19.0"}
