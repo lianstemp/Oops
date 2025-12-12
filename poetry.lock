@@ -540,6 +540,34 @@ files = [
 ]
 
 [[package]]
+name = "checkdmarc"
+version = "5.12.27"
+description = "A Python module and command line parser for SPF and DMARC records"
+optional = false
+python-versions = "*"
+groups = ["main"]
+files = [
+    {file = "checkdmarc-5.12.27-py2.py3-none-any.whl", hash = "sha256:70a93967293a02bc5af8c8aa4e95e47ee69c23f6eef36ce8a825cb24ba1430ae"},
+    {file = "checkdmarc-5.12.27.tar.gz", hash = "sha256:bcf98ec40736bab0fd3387f742c7d771b8fcfa0c1a218c2efaaa6dc5a6dd557a"},
+]
+
+[package.dependencies]
+cryptography = ">=45.0,<47.0"
+dnspython = ">=2.0.0"
+expiringdict = ">=1.1.4"
+importlib-resources = ">=6.0"
+pem = ">=23.1.0"
+publicsuffixlist = ">=0.10.0"
+pyleri = ">=1.3.2"
+pyopenssl = ">=24.2.1"
+requests = ">=2.25.0"
+timeout-decorator = ">=0.4.1"
+xmltodict = ">=0.14.2"
+
+[package.extras]
+build = ["hatch (>=1.14.0)", "myst-parser[linkify]", "nose", "pytest", "pytest-cov", "ruff", "sphinx", "sphinx-rtd-theme"]
+
+[[package]]
 name = "click"
 version = "8.3.1"
 description = "Composable command line interface toolkit"
@@ -675,6 +703,27 @@ files = [
 ]
 
 [[package]]
+name = "dnspython"
+version = "2.8.0"
+description = "DNS toolkit"
+optional = false
+python-versions = ">=3.10"
+groups = ["main"]
+files = [
+    {file = "dnspython-2.8.0-py3-none-any.whl", hash = "sha256:01d9bbc4a2d76bf0db7c1f729812ded6d912bd318d3b1cf81d30c0f845dbf3af"},
+    {file = "dnspython-2.8.0.tar.gz", hash = "sha256:181d3c6996452cb1189c4046c61599b84a5a86e099562ffde77d26984ff26d0f"},
+]
+
+[package.extras]
+dev = ["black (>=25.1.0)", "coverage (>=7.0)", "flake8 (>=7)", "hypercorn (>=0.17.0)", "mypy (>=1.17)", "pylint (>=3)", "pytest (>=8.4)", "pytest-cov (>=6.2.0)", "quart-trio (>=0.12.0)", "sphinx (>=8.2.0)", "sphinx-rtd-theme (>=3.0.0)", "twine (>=6.1.0)", "wheel (>=0.45.0)"]
+dnssec = ["cryptography (>=45)"]
+doh = ["h2 (>=4.2.0)", "httpcore (>=1.0.0)", "httpx (>=0.28.0)"]
+doq = ["aioquic (>=1.2.0)"]
+idna = ["idna (>=3.10)"]
+trio = ["trio (>=0.30)"]
+wmi = ["wmi (>=1.5.1) ; platform_system == \"Windows\""]
+
+[[package]]
 name = "docstring-parser"
 version = "0.17.0"
 description = "Parse Python docstrings in reST, Google and Numpydoc format"
@@ -709,6 +758,21 @@ typing-extensions = {version = ">=4.6.0", markers = "python_version < \"3.13\""}
 
 [package.extras]
 test = ["pytest (>=6)"]
+
+[[package]]
+name = "expiringdict"
+version = "1.2.2"
+description = "Dictionary with auto-expiring values for caching purposes"
+optional = false
+python-versions = "*"
+groups = ["main"]
+files = [
+    {file = "expiringdict-1.2.2-py3-none-any.whl", hash = "sha256:09a5d20bc361163e6432a874edd3179676e935eb81b925eccef48d409a8a45e8"},
+    {file = "expiringdict-1.2.2.tar.gz", hash = "sha256:300fb92a7e98f15b05cf9a856c1415b3bc4f2e132be07daa326da6414c23ee09"},
+]
+
+[package.extras]
+tests = ["coverage", "coveralls", "dill", "mock", "nose"]
 
 [[package]]
 name = "frozenlist"
@@ -958,6 +1022,26 @@ doc = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "rst.linke
 enabler = ["pytest-enabler (>=2.2)"]
 perf = ["ipython"]
 test = ["flufl.flake8", "importlib_resources (>=1.3) ; python_version < \"3.9\"", "jaraco.test (>=5.4)", "packaging", "pyfakefs", "pytest (>=6,!=8.1.*)", "pytest-perf (>=0.9.2)"]
+type = ["pytest-mypy"]
+
+[[package]]
+name = "importlib-resources"
+version = "6.5.2"
+description = "Read resources from Python packages"
+optional = false
+python-versions = ">=3.9"
+groups = ["main"]
+files = [
+    {file = "importlib_resources-6.5.2-py3-none-any.whl", hash = "sha256:789cfdc3ed28c78b67a06acb8126751ced69a3d5f79c095a98298cd8a760ccec"},
+    {file = "importlib_resources-6.5.2.tar.gz", hash = "sha256:185f87adef5bcc288449d98fb4fba07cea78bc036455dd44c5fc4a2fe78fed2c"},
+]
+
+[package.extras]
+check = ["pytest-checkdocs (>=2.4)", "pytest-ruff (>=0.2.1) ; sys_platform != \"cygwin\""]
+cover = ["pytest-cov"]
+doc = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)", "sphinx (>=3.5)", "sphinx-lint"]
+enabler = ["pytest-enabler (>=2.2)"]
+test = ["jaraco.test (>=5.4)", "pytest (>=6,!=8.1.*)", "zipp (>=3.17)"]
 type = ["pytest-mypy"]
 
 [[package]]
@@ -1508,6 +1592,24 @@ files = [
 ]
 
 [[package]]
+name = "pem"
+version = "23.1.0"
+description = "PEM file parsing in Python."
+optional = false
+python-versions = ">=3.8"
+groups = ["main"]
+files = [
+    {file = "pem-23.1.0-py3-none-any.whl", hash = "sha256:78bbb1e75b737891350cb9499cbba31da5d59545f360f44163c0bc751cad55d3"},
+    {file = "pem-23.1.0.tar.gz", hash = "sha256:06503ff2441a111f853ce4e8b9eb9d5fedb488ebdbf560115d3dd53a1b4afc73"},
+]
+
+[package.extras]
+dev = ["pem[tests,types]", "twisted[tls]"]
+docs = ["furo", "myst-parser", "sphinx", "sphinx-notfound-page", "twisted[tls]"]
+tests = ["certifi", "coverage[toml] (>=5.0.2)", "pretend", "pyopenssl", "pytest"]
+types = ["mypy", "twisted", "types-pyopenssl"]
+
+[[package]]
 name = "pillow"
 version = "11.3.0"
 description = "Python Imaging Library (Fork)"
@@ -1780,6 +1882,22 @@ files = [
 ]
 
 [[package]]
+name = "publicsuffixlist"
+version = "1.0.2.20251209"
+description = "publicsuffixlist implement"
+optional = false
+python-versions = ">=3.5"
+groups = ["main"]
+files = [
+    {file = "publicsuffixlist-1.0.2.20251209-py2.py3-none-any.whl", hash = "sha256:1615d6c4006df69e531016129b1ea221df85883588b0a87c8c0def6f8bcef7e2"},
+    {file = "publicsuffixlist-1.0.2.20251209.tar.gz", hash = "sha256:dfb863d00dfb9bc071340596229468ae89a75d62546eabce38ebbd8b0d350ca9"},
+]
+
+[package.extras]
+readme = ["pandoc"]
+update = ["requests"]
+
+[[package]]
 name = "pycparser"
 version = "2.23"
 description = "C parser in Python"
@@ -2007,6 +2125,38 @@ crypto = ["cryptography (>=3.4.0)"]
 dev = ["coverage[toml] (==5.0.4)", "cryptography (>=3.4.0)", "pre-commit", "pytest (>=6.0.0,<7.0.0)", "sphinx", "sphinx-rtd-theme", "zope.interface"]
 docs = ["sphinx", "sphinx-rtd-theme", "zope.interface"]
 tests = ["coverage[toml] (==5.0.4)", "pytest (>=6.0.0,<7.0.0)"]
+
+[[package]]
+name = "pyleri"
+version = "1.5.0"
+description = "Python Left-Right Parser"
+optional = false
+python-versions = "*"
+groups = ["main"]
+files = [
+    {file = "pyleri-1.5.0-py3-none-any.whl", hash = "sha256:15e35d12e3a65968aae0923072e3637d5b9be76935cf49b2defd9841b220e619"},
+    {file = "pyleri-1.5.0.tar.gz", hash = "sha256:0715a433e5b97e3d2fd8f74b4e57871e365eb3a1c7a09fb70d2f78700fd25e4c"},
+]
+
+[[package]]
+name = "pyopenssl"
+version = "25.3.0"
+description = "Python wrapper module around the OpenSSL library"
+optional = false
+python-versions = ">=3.7"
+groups = ["main"]
+files = [
+    {file = "pyopenssl-25.3.0-py3-none-any.whl", hash = "sha256:1fda6fc034d5e3d179d39e59c1895c9faeaf40a79de5fc4cbbfbe0d36f4a77b6"},
+    {file = "pyopenssl-25.3.0.tar.gz", hash = "sha256:c981cb0a3fd84e8602d7afc209522773b94c1c2446a3c710a75b06fe1beae329"},
+]
+
+[package.dependencies]
+cryptography = ">=45.0.7,<47"
+typing-extensions = {version = ">=4.9", markers = "python_version < \"3.13\" and python_version >= \"3.8\""}
+
+[package.extras]
+docs = ["sphinx (!=5.2.0,!=5.2.0.post0,!=7.2.5)", "sphinx_rtd_theme"]
+test = ["pretend", "pytest (>=3.0.1)", "pytest-rerunfailures"]
 
 [[package]]
 name = "python-dateutil"
@@ -2516,6 +2666,17 @@ doc = ["reno", "sphinx"]
 test = ["pytest", "tornado (>=4.5)", "typeguard"]
 
 [[package]]
+name = "timeout-decorator"
+version = "0.5.0"
+description = "Timeout decorator"
+optional = false
+python-versions = "*"
+groups = ["main"]
+files = [
+    {file = "timeout-decorator-0.5.0.tar.gz", hash = "sha256:6a2f2f58db1c5b24a2cc79de6345760377ad8bdc13813f5265f6c3e63d16b3d7"},
+]
+
+[[package]]
 name = "tqdm"
 version = "4.67.1"
 description = "Fast, Extensible Progress Meter"
@@ -2763,6 +2924,21 @@ files = [
 ]
 
 [[package]]
+name = "xmltodict"
+version = "1.0.2"
+description = "Makes working with XML feel like you are working with JSON"
+optional = false
+python-versions = ">=3.9"
+groups = ["main"]
+files = [
+    {file = "xmltodict-1.0.2-py3-none-any.whl", hash = "sha256:62d0fddb0dcbc9f642745d8bbf4d81fd17d6dfaec5a15b5c1876300aad92af0d"},
+    {file = "xmltodict-1.0.2.tar.gz", hash = "sha256:54306780b7c2175a3967cad1db92f218207e5bc1aba697d887807c0fb68b7649"},
+]
+
+[package.extras]
+test = ["pytest", "pytest-cov"]
+
+[[package]]
 name = "yarl"
 version = "1.22.0"
 description = "Yet another URL library"
@@ -2930,4 +3106,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.10"
-content-hash = "43d20e0da1f4e2316eca908eea94b213d4944a47d4958a4060aaa0cca768f04e"
+content-hash = "c8df53b6196be6f5290cd5540bde0ba22e57021ebad5969a4417d053f2b66436"

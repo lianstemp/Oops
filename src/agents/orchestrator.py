@@ -2,7 +2,7 @@ from strands import Agent
 from .scope_agent import scope_manager_tool
 from .intel_agent import intel_gatherer_tool
 from .plan_agent import strategy_planner_tool
-from ..config import get_model
+from config import get_model
 
 def get_orchestrator():
     """

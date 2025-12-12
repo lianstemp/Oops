@@ -1,56 +1,63 @@
-# Oops - Open Source Offensive Security Agent
+<p align="center">
+  <a href="https://github.com/lianstemp/Oops">
+    <img src="https://img.shields.io/badge/Oops-Red_Team_Orchestrator-DC143C?style=for-the-badge&logo=kalilinux&logoColor=white" alt="Oops Logo">
+  </a>
+</p>
 
-Oops is a high-end, autonomous Red Team Orchestrator built on the **Strands Agents** framework using the **"Agents as Tools"** pattern.
+<p align="center">
+  The Open Source Offensive Security Agent.
+</p>
 
-## Architecture
+<p align="center">
+  <a href="https://github.com/lianstemp/Oops/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-blue?style=flat-square" /></a>
+  <a href="https://python-poetry.org/"><img alt="Poetry" src="https://img.shields.io/badge/managed_by-Poetry-blueviolet?style=flat-square" /></a>
+  <a href="https://www.python.org/"><img alt="Python" src="https://img.shields.io/badge/Python-3.10+-yellow?style=flat-square" /></a>
+  <a href="https://strandsagents.com"><img alt="Strands Agents" src="https://img.shields.io/badge/Powered_by-Strands_Agents-orange?style=flat-square" /></a>
+</p>
 
-The system mimics a human security team structure:
+---
 
-1.  **Orchestrator Agent**: The Lead. Coordinates the assessment.
-2.  **Scope Agent** (Tool): The Legal/Compliance Officer. Defines Rules of Engagement.
-3.  **Intel Agent** (Tool): The Recon Specialist. Gathers asset information.
-4.  **Plan Agent** (Tool): The Strategist. Develops the attack vectors.
+### Installation
 
-## Project Structure
+```bash
+# Clone the repository
+git clone https://github.com/lianstemp/Oops.git
+cd Oops
 
+# Install dependencies with Poetry
+poetry install
 ```
-oops/
-├── src/
-│   ├── agents/
-│   │   ├── orchestrator.py  # Main Agent
-│   │   ├── scope_agent.py   # Scope Tool
-│   │   ├── intel_agent.py   # Intel Tool
-│   │   └── plan_agent.py    # Plan Tool
-│   ├── tools/
-│   │   └── file_ops.py      # File I/O for agents
-│   └── main.py              # Entry point
-├── output/                  # Generated Reports (scope.md, intel.md, plan.md)
-└── requirements.txt
+
+### Configuration
+
+Copy the example environment file and configure your LLM provider.
+
+```bash
+cp .env.example .env
 ```
 
-## Setup & Usage
+Edit `.env` to set your `LLM_API_KEY`, `LLM_BASE_URL`, and `LLM_MODEL`.
 
-1.  **Install Dependencies**:
-    Ensure you have [Poetry](https://python-poetry.org/) installed.
-    ```bash
-    poetry install
-    ```
+### Usage
 
-2.  **Configure Environment**:
-    - Copy `.env.example` to `.env` in the `oops` directory.
-    - Add your API Key (e.g., `LLM_API_KEY`) and other config.
+Start the interactive orchestrator:
 
-3.  **Run Oops**:
-    ```bash
-    poetry run python oops/src/main.py
-    ```
+```bash
+poetry run python src/main.py
+```
 
-4.  **Interact**:
-    - Describe your target and request.
-    - Example: _"Run a red team assessment on example.com"_
+### Workflow
 
-## Output
-The agents will generate the following artifacts in the `output/` directory:
-- `scope.md`: Defined ROE.
-- `intel.md`: Reconnaissance data.
-- `plan.md`: Attack strategy.
+Oops follows a strict 3-phase workflow to ensure safe and authorized assessments:
+
+1. **Scope** - Defines the Rules of Engagement (ROE) and verifies target ownership via DNS/IP validation.
+2. **Intel** - Performs passive and active reconnaissance (headers, tech stack) on authorized assets.
+3. **Plan** - Analyze gathered data to map potential attack vectors and required tools.
+
+### Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+### License
+
+[MIT](https://choosealicense.com/licenses/mit/)
