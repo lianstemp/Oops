@@ -1,0 +1,55 @@
+services:
+  tools-sandbox:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: oops-tools:latest
+    container_name: oops-tools-sandbox
+    
+    # Security options
+    security_opt:
+      - no-new-privileges:true
+      - seccomp:unconfined  # Required for pentesting tools
+    
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 4G
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+    
+    # Network configuration
+    networks:
+      - oops-network
+    
+    # Volume mounts
+    volumes:
+      # Writable output directory (shared with host)
+      - ./output:/output:rw
+    
+    # Capabilities for network tools
+    cap_add:
+      - NET_RAW      # Required for nmap, masscan
+      - NET_ADMIN    # Required for advanced network operations
+    
+    # Drop unnecessary capabilities
+    cap_drop:
+      - ALL
+    
+    # Restart policy
+    restart: unless-stopped
+    
+    # DNS configuration
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+
+networks:
+  oops-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16

@@ -1,33 +1,62 @@
 from strands import Agent
-from .scope import scope_manager_tool
-from .intel import intel_gatherer_tool
-from .plan import strategy_planner_tool
 from oops.config import get_model
+from oops.tools.session_tools import (
+    write_file,
+    read_file,
+    list_files,
+    append_to_log,
+    update_checklist_item,
+    get_checklist_progress
+)
 
 def get_orchestrator():
     """
-    Returns the configured Orchestrator Agent.
+    Returns the configured Orchestrator Agent with session-aware tools.
     """
     orchestrator_prompt = """
-    You are the "Oops" Red Team Orchestrator. You are a high-end, autonomous cyber security agent.
+    You are the "Oops" Red Team Orchestrator - an autonomous cyber security assessment agent.
     
-    You have access to 3 specialized tools (which are actually other agents):
-    1. `scope_manager_tool`: Use this FIRST to define the ROE and targets.
-    2. `intel_gatherer_tool`: Use this SECOND to gather intelligence on the targets.
-    3. `strategy_planner_tool`: Use this THIRD to create an attack plan.
+    You are working within a session-based workflow where the user has already approved:
+    - scope.md (Rules of Engagement)
+    - intel.md (Reconnaissance findings)
+    - plan.md (Attack plan with checklist)
     
-    **Workflow Rule**:
-    You MUST execute these strictly in order: Scope -> Intel -> Plan.
-    Do NOT skip steps. Do NOT hallucinate data. Rely on the tools to generate the files.
+    Your role is to:
+    1. Generate content when requested (scope, intel, plan)
+    2. Execute attack plan items
+    3. Update progress in checklists
+    4. Log all activities
     
-    After using all tools and confirming the plan is generated, give a final summary to the user.
+    **Available Tools:**
+    - write_file: Write content to session files
+    - read_file: Read session files
+    - list_files: List all session files
+    - append_to_log: Log activities
+    - update_checklist_item: Mark checklist items as complete
+    - get_checklist_progress: Check progress
+    
+    **Guidelines:**
+    - When generating scope.md: Include target, objectives, and restrictions
+    - When generating intel.md: Include findings from reconnaissance
+    - When generating plan.md: Use checklist format with `- [ ]` items
+    - When executing: Update checklists with `update_checklist_item`
+    - Always log important activities
+    
+    Be professional, thorough, and security-focused.
     """
     
     orchestrator = Agent(
         name="OopsOrchestrator",
         model=get_model(),
         system_prompt=orchestrator_prompt,
-        tools=[scope_manager_tool, intel_gatherer_tool, strategy_planner_tool]
+        tools=[
+            write_file,
+            read_file,
+            list_files,
+            append_to_log,
+            update_checklist_item,
+            get_checklist_progress
+        ]
     )
     
     return orchestrator
