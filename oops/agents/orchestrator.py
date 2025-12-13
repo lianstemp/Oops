@@ -8,6 +8,9 @@ from oops.tools.session_tools import (
     update_checklist_item,
     get_checklist_progress
 )
+from oops.agents.intel import intel_gatherer_tool
+from oops.agents.scope import scope_manager_tool
+from oops.agents.plan import strategy_planner_tool
 
 def get_orchestrator():
     """
@@ -55,7 +58,10 @@ def get_orchestrator():
             list_files,
             append_to_log,
             update_checklist_item,
-            get_checklist_progress
+            get_checklist_progress,
+            intel_gatherer_tool,
+            scope_manager_tool,
+            strategy_planner_tool
         ]
     )
     
